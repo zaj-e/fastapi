@@ -6,6 +6,8 @@ from tensorflow.python.keras.preprocessing import image as image_preprocessing
 from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionResNetV2
 from tensorflow.python.keras.applications.inception_resnet_v2 import preprocess_input, decode_predictions
 from googletrans import Translator
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
 def load_model():
