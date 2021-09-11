@@ -14,4 +14,7 @@ starlette
 uvicorn
 websockets
 wrapt
-uvloop
+Pillow
+numpy
+tensorflow
+googletrans
