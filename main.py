@@ -2,11 +2,10 @@ import numpy as np
 from io import BytesIO
 from PIL import Image
 from fastapi import (FastAPI, File, UploadFile)
-from starlette.responses import RedirectResponse
 from tensorflow.python.keras.preprocessing import image as image_preprocessing
 from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionResNetV2
 from tensorflow.python.keras.applications.inception_resnet_v2 import preprocess_input, decode_predictions
-from googletrans import Translator, constants
+from googletrans import Translator
 
 
 def load_model():
@@ -53,9 +52,9 @@ def read_image_file(file) -> Image.Image:
     return image
 
 
-@app.get("/", include_in_schema=False)
-async def index():
-    return RedirectResponse(url="/docs")
+@app.get("/")
+def home():
+    return {"message": "Hello TutLinks.com"}
 
 
 @app.post("/predict/image")
