@@ -1,10 +1,22 @@
 from fastapi import FastAPI
+from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionResNetV2
 
 app = FastAPI()
 
-#domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
+model = None
+
+
+@app.on_event("startup")
+def load_model():
+    inception_model = InceptionResNetV2(weights='imagenet')
+    if inception_model is None:
+        print("Model NOT loaded")
+    else:
+        print("Model  loaded")
+    return inception_model
 
 
 @app.get("/")
 def home():
-    return {"message":"Hello working system"}
+    load_model()
+    return {"message": "Hello working system"}
