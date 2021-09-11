@@ -1,7 +1,11 @@
-from fastapi import FastAPI
+import os
+import tensorflow as tf
 from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionResNetV2
+from fastapi import FastAPI
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 app = FastAPI()
+
 
 # model = None
 
