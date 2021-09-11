@@ -19,3 +19,4 @@ numpy
 tensorflow
 googletrans
 uvloop
+python-multipart
