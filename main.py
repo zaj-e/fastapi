@@ -3,7 +3,7 @@ from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionRe
 
 app = FastAPI()
 
-model = None
+# model = None
 
 
 @app.on_event("startup")
@@ -13,7 +13,6 @@ def load_model():
         print("Model NOT loaded")
     else:
         print("Model  loaded")
-    return inception_model
 
 
 @app.get("/")
