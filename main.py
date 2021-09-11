@@ -4,15 +4,9 @@ from PIL import Image
 from fastapi import (FastAPI, File, UploadFile)
 from starlette.responses import RedirectResponse
 from tensorflow.python.keras.preprocessing import image as image_preprocessing
-import tensorflow as tf
 from tensorflow.python.keras.applications.inception_resnet_v2 import InceptionResNetV2
 from tensorflow.python.keras.applications.inception_resnet_v2 import preprocess_input, decode_predictions
 from googletrans import Translator, constants
-
-model = None
-
-app = FastAPI()
-translator = Translator()
 
 
 def load_model():
@@ -22,6 +16,12 @@ def load_model():
     else:
         print("Model  loaded")
     return inception_model
+
+
+model = load_model()
+
+app = FastAPI()
+translator = Translator()
 
 
 def predict(img: Image.Image):
