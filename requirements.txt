@@ -14,5 +14,4 @@ starlette
 uvicorn
 websockets
 wrapt
-uvloop
 tensorflow
